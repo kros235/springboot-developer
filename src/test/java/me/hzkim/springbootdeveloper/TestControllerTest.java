@@ -49,7 +49,9 @@ class TestControllerTest {
 
         // then
         result
-                .andExpect( status)
+                .andExpect( status.isOk() )
+                .andExpect( jsonPath("$[0].id").value(savedMember.getId() ) )
+                .andExpect( jsonPath("$[0].name").value(savedMember.getName() ) );
 
     }
 
